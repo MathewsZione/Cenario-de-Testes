@@ -5,33 +5,25 @@ Como cliente da EBAC-SHOP
 Quero fazer concluir meu cadastro   
 Para finalizar minha compra
 
-Cenário: cadastro com todos os dados obrigatórios corretos 
-Dado que eu acesse a plataforma da EBAC SHOP 
-Quando eu fizer o cadastro com todos os dados obrigatórios marcado com asteriscos
-E estiverem todos corretos 
+Cenário: cadastrado com todos os dados obrigatórios
+Dado que o cliente acesse a tela de cadastro
+Quando o cliente preencher todos os dados obrigatórios
+E estiverem corretos
 Então deve finalizar a compra
 
-Cenário: cadastro com todos os dados obrigatórios incorreto  
-Dado que eu acesse a plataforma da EBAC SHOP 
-Quando eu fizer o cadastro com todos os dados obrigatórios marcado com asteriscos
-E alguma informação não estver correta  
-Então deve ser exibida uma mensagem para corrigir a mesma
-
-Cenário: e-mail com formato inválido
-Dado que faça o cadastro na plataforma EBAC SHOP
-Quando eu inserir um e-mail com formato inválido 
+Cenário: campo e-mail com formato inválido
+Dado que o cliente acesse a tela de cadastro para finalizar a compra 
+Quando o cliente digitar o campo e-mail
+E estiver com formato invvalido "alex@hotmail"
 Então deve exibir uma mensagem de "erro"
 
-Cenário: Campos vazios 
-Dado que eu acesse a EBAC SHOP
-Quando for preencher os campos de cadastro
-E estiverem os campos estiverem vázios 
+Cenário: cadastrar com campos vazios
+Dado que o cliente acesse a tela de cadastrado
+Quando o cliente não preencher os campos de cadastro
+E cliclar em "finalizar compra"
 Então deve exibir uma mensagem de "alerta"
 
-Cenário: autenticar usuario
-Quando eu digitar o <usuário> 
+Esquema do Cenário: autenticar usuarios
+Quando o cliente digitar o <usuário> 
 E a <senha>
-Então deve exibir a <mensagem> de sucesso
-
-Exemplos: 
-|usuário|senha|mensagem|
+Então deve exibir a <mensagem> "alerta"

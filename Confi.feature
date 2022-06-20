@@ -1,67 +1,57 @@
-#language: pt
+#language: pt 
 
-Funcionalidade: Configuração
+Funcionalidade: Configurar produtos 
 Como cliente da EBAC-SHOP
 Quero configurar meu produto de acordo com meu tamanho e gosto
 E escolher a quantidade
 Para depois inserir no carrinho
 
-Cenário: Seleções de cor, tamanho e quantidade correta
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar a cor, tamanho e quantidade
-E "clicar em adicionar ao carrinho de compras"
-Então deve ser enserido o produto no carrinho de compras
+Cenário: Seleções de cor, tamanho e quantidade valida
+Dado que o cliente acesse a EBAC SHOP
+Quando selecionar cor, tamanho e quantidade
+E clicar em "adicionar ao carrinho"
+Então o produto deve ser adicionado ao carrinho de compras
 
-Cenário: Seleções de cor
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar tamanho e quantidade mas, naõ selecionar a cor
-E clicar em "adicionar ao carrinho de compras"
-Então deve exibir uma mensagem "por favor selecione a cor do produto"
+Cenário: Seleções de cor, tamanho e quantidade invalida
+Dado que o cliente acesse a EBAC SHOP
+Quando não selecionar cor, tamanho ou quantidade
+E clicar em "adicionar ao carrinho"
+Então devera exibir uma mensagem de "selecionar cor tamanho ou quantidade"
 
-Cenário: Seleções de tamanho
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar cor e quantidade mas, naõ selecionar o tamanho
-E clicar em "adicionar ao carrinho de compras"
-Então deve exibir uma mensagem "por favor selecione o tamanho do produto"
+Cenário: Permitir apenas 10 produtos por venda valida
+Dado que o cliente acesse a EBAC SHOP
+Quando selecionar um produto
+E a quantidade for de 10 produtos 
+Então devera exibir uma mensagem de "sucesso"
 
-Cenário: Seleções de tamanho
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar cor e tamanho mas, naõ selecionar a quantidade
-E clicar em "adicionar ao carrinho de compras"
-Então deve exibir uma mensagem "por favor selecione o quantidade do produto"
+Cenário: Permitir apenas 10 produtos por venda invalida
+Dado que o cliente acesse a EBAC SHOP
+Quando selecionar um produto
+E a quantidade for maior que 10 produtos 
+Então devera exibir uma mensagem de "limite de apenas 10 produtos por venda"
 
-Cenário: Quantidade de produtos
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar a quantidade de 9 produtos
-E clicar em "adicionar ao carrinho de compras"
-Então deve ser enserido o produto no carrinho de compras
+Cenário: Botão “limpar” deve voltar ao estado original
+Dado que o cliente acesse a EBAC SHOP
+Quando preencher todas as configurações de cor, tamanho e quantidade
+E clicar no botão "limpar" 
+Então as opções devem voltar ao normal
 
-Cenário: Quantidade de produtos
-Dado que eu acesse o EBAC Shop 
-Quando eu selecionar a quantidade de 10 produtos
-E clicar em "adicionar ao carrinho de compras"
-Então deve ser enserido o produto no carrinho de compras
-
-Cenário: Quantidade de produtos
-Dado que eu acesse a EBAC Shop 
-Quando eu selecionar a quantidade de 11 produtos
-E clicar em "adicionar ao carrinho de compras"
-Então deve exibir uma mensagem "limite máximo de produto exedido"
-
-Cenário: Botão limpar
-Dado que eu acesse a EBAC Shop
-Quando eu selecionar cor, tamanho e quantidade
-E clicar no botão "limpar"
-Então deve ser limpas as opções de cor, tamanho e quantidade
-
-Cenário: Botão limpar
-Quando eu selecionar <cor> <tamanho> <quantidade>
-E clicar no botão <limpar>
-Então deve exibir a <mensagem> de "sucesso"
+Esquema do Cenário: configurar múltiplos produtos
+Quando o cliente selecionar <cor> <tamanho> <quantidade>
+E clicar em <adicionar ao carrinho> 
+Então deve ser exibida uma <mensagem> de sucesso
 
 Exemplos: 
-|cor|tamanho|quantidade|limpar|mensagem|
-|"sucesso"|
+|cor|tamanho|quantidade|
+|"adicionar ao carrinho"|"selecionar cor tamanho ou quantidade"|"sucesso"|
+
+
+
+
+
+
+
+
 
 
 

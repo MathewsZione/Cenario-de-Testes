@@ -5,35 +5,23 @@ Como cliente da EBAC-SHOP
 Quero fazer o login (autenticação) na plataforma  
 Para visualizar meus pedidos
 
-Cenário: Tela de checkout
-Dado que eu faça login na plataforma da EBAC SHOP
-Quando eu fizer o login 
-E estiver correto
-Então devo ser direcionado a pagina de checkout
+Cenário: Login valido
+Dado que o cliente acesse a página de autentificação do portal ebac
+Quando o cliente digitar "matheus@gmail.com"
+E a senha "12345"
+Então deve ser direcionado para tela de Checkout
 
-Cenário: Autenticação valida
-Dado que eu acesse a pagina de autenticação do portal ebac 
-Quando eu digitar o usuário "fred@gmail.com"
-E a senha '1234'
-Então deve exibir uma mensagem de boas vindas "olá joão"
+Cenário: Login invalido
+Dado que o cliente acesse a página de autentificação do portal ebac
+Quando o cliente digitar "matheus@gmail.com"
+E a senha "1345"
+Então deve exibir uma mensagem de alerta “Usuário ou senha inválidos”
 
-Cenário: Usuário inesistênte
-Dado que eu acesse a pagina de autenticação do portal ebac 
-Quando eu digitar o usuário "fred@gmail.com"
-E a senha '1234'
-Então deve exibir uma mensagem de de alerta "usuário inesistênte"
-
-Cenário: usuário com senha invalida
-Dado que eu acesse a pagina de autenticação do portal ebac 
-Quando eu digitar o usuário "fred@gmail.com"
-E a senha '1234'
-Então deve exibir uma mensagem de de alerta "usuário inesistênte ou senha invalida"
-
-Cenário: autenticar multiplos usuarios
-Quando eu digitar o <usuário> 
+Esquema do Cenário: autenticar multiplos usuarios
+Quando o cliente digitar o <usuário> 
 E a <senha>
-Então deve exibir a <mensagem> de sucesso
+Então deve exibir a <mensagem> de Usuário ou senha inválidos
 
 Exemplos: 
 |usuário|senha|mensagem|
-|"fred@gmail.com"|"1234"|"Olá João"| 
+|"matheus@gmail.com"|"1234"|"Olá matheus"|
